@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/d1slike/pg"
+	"github.com/d1slike/pg/pgjson"
 	"net"
 	"reflect"
 	"time"
@@ -237,7 +237,7 @@ func scanJSONValue(v reflect.Value, rd Reader, n int) error {
 		return nil
 	}
 
-	dec := pg.JsonProvider.NewDecoder(rd)
+	dec := pgjson.JsonProvider.NewDecoder(rd)
 	return dec.Decode(v.Addr().Interface())
 }
 

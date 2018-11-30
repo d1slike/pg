@@ -2,7 +2,7 @@ package types
 
 import (
 	"database/sql/driver"
-	"github.com/d1slike/pg"
+	"github.com/d1slike/pg/pgjson"
 	"net"
 	"reflect"
 	"strconv"
@@ -150,7 +150,7 @@ func appendStructValue(b []byte, v reflect.Value, quote int) []byte {
 }
 
 func appendJSONValue(b []byte, v reflect.Value, quote int) []byte {
-	bytes, err := pg.JsonProvider.Marshal(v.Interface())
+	bytes, err := pgjson.JsonProvider.Marshal(v.Interface())
 	if err != nil {
 		return AppendError(b, err)
 	}
