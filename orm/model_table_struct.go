@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-pg/pg/types"
+	"github.com/d1slike/pg/types"
 )
 
 type structTableModel struct {

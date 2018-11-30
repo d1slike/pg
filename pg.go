@@ -1,18 +1,43 @@
 package pg
 
 import (
+	"encoding/json"
 	"io"
 	"log"
 	"os"
 	"strconv"
 
-	"github.com/go-pg/pg/internal"
-	"github.com/go-pg/pg/orm"
-	"github.com/go-pg/pg/types"
+	"github.com/d1slike/pg/internal"
+	"github.com/d1slike/pg/orm"
+	"github.com/d1slike/pg/types"
 )
 
 // Discard is used with Query and QueryOne to discard rows.
 var Discard orm.Discard
+
+type jsonProvider interface {
+	Marshal(v interface{}) ([]byte, error)
+	NewDecoder(r io.Reader) interface {
+		Decode(v interface{}) error
+	}
+}
+
+type defualtJsonProvider struct {
+}
+
+func (p *defualtJsonProvider) Marshal(v interface{}) ([]byte, error) {
+	return json.Marshal(v)
+}
+
+func (p *defualtJsonProvider) NewDecoder(r io.Reader) interface {
+	Decode(v interface{}) error
+} {
+	return json.NewDecoder(r)
+}
+
+var (
+	JsonProvider jsonProvider = &defualtJsonProvider{}
+)
 
 type NullTime = types.NullTime
 

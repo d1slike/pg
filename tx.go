@@ -3,9 +3,9 @@ package pg
 import (
 	"context"
 	"errors"
-	"github.com/go-pg/pg/internal"
-	"github.com/go-pg/pg/internal/pool"
-	"github.com/go-pg/pg/orm"
+	"github.com/d1slike/pg/internal"
+	"github.com/d1slike/pg/internal/pool"
+	"github.com/d1slike/pg/orm"
 	"io"
 	"sync"
 )

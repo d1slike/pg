@@ -1,4 +1,4 @@
 /*
-Package github.com/go-pg/pg implements a PostgreSQL client.
+Package github.com/d1slike/pg implements a PostgreSQL client.
 */
 package pg

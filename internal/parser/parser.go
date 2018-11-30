@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/go-pg/pg/internal"
+	"github.com/d1slike/pg/internal"
 )
 
 type Parser struct {

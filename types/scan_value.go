@@ -5,11 +5,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/d1slike/pg"
 	"net"
 	"reflect"
 	"time"
 
-	"github.com/go-pg/pg/internal"
+	"github.com/d1slike/pg/internal"
 )
 
 var valueScannerType = reflect.TypeOf((*ValueScanner)(nil)).Elem()
@@ -236,7 +237,7 @@ func scanJSONValue(v reflect.Value, rd Reader, n int) error {
 		return nil
 	}
 
-	dec := json.NewDecoder(rd)
+	dec := pg.JsonProvider.NewDecoder(rd)
 	return dec.Decode(v.Addr().Interface())
 }
 

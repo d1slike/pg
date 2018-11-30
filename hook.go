@@ -3,7 +3,7 @@ package pg
 import (
 	"fmt"
 
-	"github.com/go-pg/pg/orm"
+	"github.com/d1slike/pg/orm"
 )
 
 type dummyDB struct {

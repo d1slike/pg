@@ -3,8 +3,8 @@ package orm
 import (
 	"reflect"
 
-	"github.com/go-pg/pg/internal"
-	"github.com/go-pg/pg/types"
+	"github.com/d1slike/pg/internal"
+	"github.com/d1slike/pg/types"
 )
 
 type join struct {

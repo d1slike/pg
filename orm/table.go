@@ -4,13 +4,14 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"github.com/d1slike/pg"
 	"net"
 	"reflect"
 	"strings"
 	"time"
 
-	"github.com/go-pg/pg/internal"
-	"github.com/go-pg/pg/types"
+	"github.com/d1slike/pg/internal"
+	"github.com/d1slike/pg/types"
 )
 
 const (
@@ -913,8 +914,7 @@ func scanJSONValue(v reflect.Value, rd types.Reader, n int) error {
 		return nil
 	}
 
-	dec := json.NewDecoder(rd)
-	dec.UseNumber()
+	dec := pg.JsonProvider.NewDecoder(rd)
 	return dec.Decode(v.Addr().Interface())
 }
 

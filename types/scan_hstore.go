@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/go-pg/pg/internal/parser"
+	"github.com/d1slike/pg/internal/parser"
 )
 
 func HstoreScanner(typ reflect.Type) ScannerFunc {

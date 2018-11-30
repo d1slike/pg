@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-pg/pg/internal"
-	"github.com/go-pg/pg/internal/pool"
-	"github.com/go-pg/pg/types"
+	"github.com/d1slike/pg/internal"
+	"github.com/d1slike/pg/internal/pool"
+	"github.com/d1slike/pg/types"
 )
 
 const gopgChannel = "gopg:ping"

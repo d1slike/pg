@@ -2,13 +2,13 @@ package types
 
 import (
 	"database/sql/driver"
-	"encoding/json"
+	"github.com/d1slike/pg"
 	"net"
 	"reflect"
 	"strconv"
 	"time"
 
-	"github.com/go-pg/pg/internal"
+	"github.com/d1slike/pg/internal"
 )
 
 var driverValuerType = reflect.TypeOf((*driver.Valuer)(nil)).Elem()
@@ -150,7 +150,7 @@ func appendStructValue(b []byte, v reflect.Value, quote int) []byte {
 }
 
 func appendJSONValue(b []byte, v reflect.Value, quote int) []byte {
-	bytes, err := json.Marshal(v.Interface())
+	bytes, err := pg.JsonProvider.Marshal(v.Interface())
 	if err != nil {
 		return AppendError(b, err)
 	}
